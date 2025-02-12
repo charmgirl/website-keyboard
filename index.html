@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Клавиатура для слабовидящих</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #323030;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border-bottom: 5px solid #9340ff;
+    }
+
+    header h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 4.5rem;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin-bottom: 40px;
+      opacity: 0.9;
+    }
+
+    header .cta-button {
+      background-color: #9340ff;
+      padding: 15px 40px;
+      color: white;
+      border-radius: 30px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    header .cta-button:hover {
+      background-color: #9340ff;
+      transform: translateY(-5px);
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.8rem;
+      color: #51009d;
+      margin-bottom: 40px;
+      font-weight: 600;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+      background-image: linear-gradient(135deg, #f5f5f5, #ffffff);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-card h3 {
+      font-size: 1.8rem;
+      color: #000;
+      margin-bottom: 15px;
+    }
+
+    .feature-card p {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .product-photo {
+      display: flex;
+      justify-content: center;
+      margin: 50px 0;
+    }
+
+    .product-photo img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .product-photo img:hover {
+      transform: scale(1.05);
+    }
+
+    .problem-section {
+      background-color: #333;
+      color: white;
+      padding: 60px 20px;
+      margin-top: 80px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .problem-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #9340ff;
+      text-align: center;
+    }
+
+    .problem-section p {
+      font-size: 1.3rem;
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    .problem-block {
+      display: flex;
+      gap: 40px;
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .problem-block div {
+      flex: 1;
+      background-color: #444;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .problem-block div h3 {
+      font-size: 1.8rem;
+      color: #9340ff;
+      margin-bottom: 15px;
+    }
+
+    .problem-block div p {
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+
+    .testimonial {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      margin-top: 60px;
+    }
+
+    .testimonial-card {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      flex: 1 1 300px;
+      transition: transform 0.3s ease;
+      max-width: 350px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .testimonial-card h3 {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-card p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 15px;
+    }
+
+    .statistics {
+      margin-top: 80px;
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #f2f2f2;
+    }
+
+    .statistics h2 {
+      font-size: 2.8rem;
+      color: #9340ff;
+      margin-bottom: 20px;
+    }
+
+    .statistics table {
+      width: 800px;
+      border-collapse: collapse;
+      margin-top: 40px;
+      background-color: #e0e0e0;
+      margin-top: 80px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .statistics table th,
+    .statistics table td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+      transition: background-color 0.3s ease;
+    }
+
+    
+
+    .statistics table th {
+      background-color: #9340ff;
+      color: white;
+      text-align: center;
+    }
+
+    .statistics table td {
+      background-color: #f9f9f9;
+    }
+
+    .statistics table td:hover {
+      background-color: #e0c6ff;
+    }
+
+    .statistics table td:active {
+      transform: scale(0.98);
+    }
+
+    .statistics table td {
+      cursor: pointer;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .gallery .photo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery p {
+      font-size: 1.1rem;
+      margin-top: 15px;
+      text-align: center;
+      color: #555;
+    }
+
+    .downloads {
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 80px;
+      background-color: #555;
+      color: white;
+      border-radius: 12px;
+    }
+
+    .downloads h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    .downloads .cta-button {
+      background-color: #842bad;
+      padding: 15px 40px;
+      color: white;
+      border-radius: 30px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s ease-in-out;
+    }
+
+    .downloads .cta-button:hover {
+      background-color: #333;
+      transform: translateY(-5px);
+    }
+
+    /* Стили для блока с отзывами */
+    .reviews-title {
+      font-size: 2.5rem;
+      color: #9340ff;
+      margin-bottom: 20px;
+      text-align: center;
+      width: 100%; /* Добавлено для выравнивания */
+      margin: 0 auto;
+    }
+
+    .cta-last {
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Клавиатура для слабовидящих</h1>
+    <p>Удобная клавиатура, специально разработанная для людей с ограничениями зрения.</p>
+    <a href="https://charmgirl.github.io/keyboard/" target="_blank" class="cta-button" class="cta-button">Протестировать</a>
+  </header>
+
+  <section>
+    <h2>Преимущества</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Высокий контраст</h3>
+        <p>Яркие кнопки и контрастный текст для лучшего восприятия.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Озвучивание действий</h3>
+        <p>Каждое нажатие буквы сопровождается голосовым подтверждением.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Большие кнопки</h3>
+        <p>Увеличенные клавиши для точности ввода и удобства использования.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="problem-section">
+    <h2>Как видят мир слабовидящие люди?</h2>
+    <p>Мир для людей с нарушениями зрения выглядит иначе. Поэтому необходимо упростить их взаимодействие с цифровым миром.</p>
+
+    <div class="problem-block">
+      <div>
+        <h3>Размытость</h3>
+        <p>Изображение кажется размазанным или искаженным, что делает трудным распознавание текста или объектов.</p>
+      </div>
+      <div>
+        <h3>Низкий контраст</h3>
+        <p>Слабовидящие люди часто сталкиваются с проблемой недостаточного контраста на экранах, что усложняет восприятие информации.</p>
+      </div>
+      <div>
+        <h3>Шрифт</h3>
+        <p>Мелкий тонкий шрифт делает трудным восприятие информации на компьютерах.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="statistics">
+    <h2>Клавиатура</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Преимущества</th>
+          <th>Что мы сделали</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Контрастность</td>
+          <td>Увеличение контраста на экране.</td>
+        </tr>
+        <tr>
+          <td>Размеры</td>
+          <td>Клавиши с увеличенными размерами.</td>
+        </tr>
+        <tr>
+          <td>Озвучивание</td>
+          <td>Озвучивание текста при нажатии.</td>
+        </tr>
+        <tr>
+          <td>Поддержка</td>
+          <td>Поддержка различных устройств и систем.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Добавленный заголовок для отзывов -->
+  <section class="testimonial">
+    <h2 class="reviews-title">Отзывы</h2>
+    <div class="testimonial-card">
+      <h3>Иван И.</h3>
+      <p>Скачал маме на компьютер, так как ей необходимо 3-4 раза в месяц подписывать электронные документы. Теперь она может это делать самостоятельно. Клавиатура классная!</p>
+    </div>
+    <div class="testimonial-card">
+      <h3>Людмила П.</h3>
+      <p>Клавиши такие большие и яркие, что я теперь не ошибаюсь при наборе текста. Спасибо! Это очень удобно. Цвета легко различаются, озвучивание неплохое. </p>
+    </div>
+    <div class="testimonial-card">
+      <h3>Наталья Т.</h3>
+      <p>Невероятно удобный интерфейс, я больше не испытываю трудностей, когда надо что-то написать. Теперь и справки легко заполняю. И память развиваю, запоминая где какая буква!</p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="photo-card">
+      <img src="./images/keyboard-image1.png.png" alt="Клавиатура">
+      <p>Клавиатура в обычном состоянии</p>
+    </div>
+    <div class="photo-card">
+      <img src="./images/keyboard-image2.png.png" alt="Клавиатура">
+      <p>Наведение курсора на букву</p>
+    </div>
+    <div class="photo-card">
+      <img src="./images/keyboard-image3.png.png" alt="Клавиатура">
+      <p>Нажатие на кнопку</p>
+    </div>
+  </section>
+
+  <section class="downloads" id="download">
+    <a href="https://charmgirl.github.io/keyboard/" target="_blank" class="cta-button">Начать использовать </a>
+  </section>
+
+  <footer>
+    <a href="#" class="cta-last">Попробуйте  клавиатуру</a>
+  </footer>
+</body>
+
+</html>
